@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="c2e4fdb5-9064-47ff-84ed-9d689fb4cc45" name="object-oriented-php" url="https://bootcamp-coders.cnm.edu/~latencio23/project-object-oriented-php/">
-        <fileTransfer host="bootcamp-coders.cnm.edu" port="22" rootFolder="/home/latencio23/public_html/project-object-oriented-php " accessType="SFTP" authAgent="true">
+      <webServer id="c2e4fdb5-9064-47ff-84ed-9d689fb4cc45" name="object-oriented-php" url="https://bootcamp-coders.cnm.edu/~latencio23/project-object-oriented-php">
+        <fileTransfer host="bootcamp-coders.cnm.edu" port="22" rootFolder="/home/latencio23/public_html/project-object-oriented-php" accessType="SFTP" authAgent="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
