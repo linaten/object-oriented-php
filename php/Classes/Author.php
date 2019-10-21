@@ -1,7 +1,7 @@
 <?php
 namespace latencio23\objectOrientedPhp;
 require_once("autoload.php");
-require_once(dirname(__DIR__, 1) . "/vendor/autoload.php");
+require_once(dirname(__DIR__, 1) . "/lib/vendor/autoload.php");
 
 use Ramsey\Uuid\Uuid;
 /**
@@ -46,7 +46,20 @@ class Author {
 	public function getAuthorId(): Uuid {
 		return ($this->authorId);
 	}
+Public function getAuthorActivationToken() {
+	return($this->authorActivationToken);
+}
 
+	public function setAuthorActivationToken($newAuthorActivationToken): void {
+		$newAuthorActivationToken=trim($newAuthorActivationToken);
+		if (empty ($newAuthorActivationToken) === true){
+			throw(new \InvalidArgumentException("empty or invalid"));
+		}
+		if(strlen($newAuthorActivationToken)!==32) {
+			throw(new \RangeException("authorActivationToken has too many characters"));
+		}
+		$this->authorActivationToken = $newAuthorActivationToken;
+	}
 
 	public function setAuthorId($newAuthorId): void {
 		try {
@@ -58,8 +71,22 @@ class Author {
 		}
 	$this->authorId = $uuid;
 		}
+	public function getAuthorAvatarUrl() {
+		return($this->authorAvatarUrl);
+	}
+	public function setAuthorAvatarUrl($newAuthorAvatarUrl): void {
+		$newAuthorAvatarUrl = filter_var($newAuthorAvatarUrl, FILTER_VALIDATE_URL);
+		if ($newAuthorAvatarUrl === false){
+			throw(new \InvalidArgumentException("URL is empty or invalid"));
+		}
+		if(strlen($newAuthorAvatarUrl)>255) {
+			throw(new \RangeException("avatarUrl has too many characters"));
+		}
+		$this->authorAvatarUrl = $newAuthorAvatarUrl;
+	}
 
-public function getAuthorEmail(): void {
+
+public function getAuthorEmail(){
 	return($this->authorEmail);
 }
 public function setAuthorEmail($newAuthorEmail): void {
@@ -71,31 +98,20 @@ public function setAuthorEmail($newAuthorEmail): void {
 		}
 	$this->authorEmail = $newAuthorEmail;
 	}
-	public function getAuthorAvatarUrl(): void {
-		return($this->authorAvatarUrl);
-	}
-	public function setAuthorAvatarUrl($newAuthorAvatarUrl): void {
-		$newAuthorAvatarUrl = filter_var($newAuthorAvatarUrl, FILTER_VALIDATE_URL);
-		if(empty($newAuthorAvatarUrl) === false){
-			throw(new \InvalidArgumentException("URL is empty or invalid"));
-		}
-			if(strlen($newAuthorAvatarUrl)>255) {
-				throw(new \RangeException("avatarUrl has too many characters"));
-			}
-			$this->authorAvatarUrl = $newAuthorAvatarUrl;
-		}
-	public function getAuthorHash(): void {
+
+	public function getAuthorHash() {
 		return($this->authorHash);
 	}
 
 	public function setAuthorHash($newAuthorHash): void {
-
-
-		//determine what exception type was thrown
-	if(strlen($newAuthorHash)>97) {
+		$newAuthorHash=trim($newAuthorHash);
+		if (empty ($newAuthorHash) === true){
+			throw(new \InvalidArgumentException("Hash is empty or invalid"));
+		}
+	if(strlen($newAuthorHash)!==97) {
 		throw(new \RangeException("authorHash has too many characters"));
 	}
-	$this->authorHash = $uuid;
+	$this->authorHash = $newAuthorHash;
 	}
 
 public function getAuthorUsername(): Uuid {
