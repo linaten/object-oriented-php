@@ -1,5 +1,5 @@
 <?php
-namespace latencio23\ObjectOrientedPhp;
+namespace latencio23\objectOrientedPhp;
 /**
  * Trait to Validate a mySQL Date
  *

@@ -15,7 +15,7 @@ spl_autoload_register(function($class) {
 	 * prefix: the prefix for all the classes (i.e., the namespace)
 	 * baseDir: the base directory for all classes (default = current directory)
 	 **/
-	$prefix = "latencio23\\author";
+	$prefix = "latencio23\\objectOrientedPhp";
 	$baseDir = __DIR__;
 
 	// does the class use the namespace prefix?
@@ -26,7 +26,7 @@ spl_autoload_register(function($class) {
 	}
 
 	// get the relative class name
-	$author = substr($class, $len);
+	$className = substr($class, $len);
 
 	// replace the namespace prefix with the base directory, replace namespace
 	// separators with directory separators in the relative class name, append
