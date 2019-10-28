@@ -158,10 +158,9 @@ class Author {
 	 * @param string $newAuthorHash
 	 * @throws \InvalidArgumentException if the hash is not secure
 	 * @throws \RangeException if the hash is not 97 characters
-	 * @throws \TypeError if profile ha
-	 * sh is not a string
+	 * @throws \TypeError if profile hash is not a string
 	 */
-	public function setAuthorHash($newAuthorHash): string {
+	public function setAuthorHash($newAuthorHash): void {
 		$newAuthorHash = trim($newAuthorHash);
 		if(empty ($newAuthorHash) === true) {
 			throw(new \InvalidArgumentException("Hash is empty or invalid"));
